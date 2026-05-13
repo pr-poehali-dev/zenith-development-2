@@ -4,77 +4,135 @@ export default function Index() {
       <div className="grain-overlay" />
 
       <header className="header">
-        <div className="logo">VINYL*DINER</div>
+        <div className="logo" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <img
+            src="https://cdn.poehali.dev/files/7b98ef7d-f2d7-40fa-b5fb-a62995db33dd.jpg"
+            alt="ОбедБрат"
+            style={{ width: "50px", height: "50px", borderRadius: "50%", border: "2px solid var(--dark)" }}
+          />
+          <span style={{ fontSize: "20px" }}>ОБЕДБРАТ</span>
+        </div>
         <nav>
-          <a href="#">Меню</a>
-          <a href="#">О нас</a>
-          <a href="#">Афиша</a>
-          <a href="#">Адреса</a>
+          <a href="#menu">Меню</a>
+          <a href="#about">О нас</a>
+          <a href="#order">Заказать</a>
         </nav>
-        <button className="btn-cta">Забронировать</button>
+        <a href="tel:+79000000000" className="btn-cta" style={{ textDecoration: "none" }}>
+          Позвонить
+        </a>
       </header>
 
       <main>
         <section className="hero">
           <div className="hero-content">
             <h1 className="hero-title">
-              БЕЗ ПОНТОВ,
+              ЕДА КАК
               <br />
-              ТОЛЬКО <span>ВКУС</span>
+              ДОМА,{" "}
+              <span>только</span>
+              <br />
+              вкуснее
             </h1>
             <p className="text-base md:text-lg lg:text-xl mb-8 md:mb-10 leading-relaxed text-[#555]">
-              Эстетика 70-х в современной подаче. Локальные продукты, огненные блюда и атмосфера для настоящих ценителей.
+              Домашние сэндвичи, картошка и морс — всё свежее, всё вкусное. Работаем на доставку, готовим с душой.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <button className="btn-cta" style={{ background: "var(--primary)", color: "white" }}>
-                Заказать
+                Заказать набор — 650 ₽
               </button>
-              <button className="btn-cta" style={{ background: "white" }}>
+              <a href="#menu" className="btn-cta" style={{ background: "white", textDecoration: "none" }}>
                 Смотреть меню
-              </button>
+              </a>
             </div>
           </div>
-          <div className="hero-img">
+          <div
+            className="hero-img"
+            style={{
+              background: `url("https://cdn.poehali.dev/projects/d38b36c1-381d-4094-8ded-0a957a499c91/files/becf1ab9-fedd-4bec-9c61-ba1852f7d8ac.jpg") center center / cover`,
+            }}
+          >
             <div className="sticker">
-              СВЕЖАК
+              650 ₽
               <br />
-              КАЖДЫЙ ДЕНЬ
+              НАБОР!
             </div>
             <div className="floating-tag hidden md:block" style={{ top: "20%", left: "10%" }}>
-              #ЭСТЕТИКА
+              ДОСТАВКА
             </div>
             <div className="floating-tag hidden md:block" style={{ bottom: "30%", right: "20%" }}>
-              ОГОНЬ
+              ДОМАШНЕЕ
             </div>
           </div>
         </section>
 
         <div className="marquee">
           <div className="marquee-content">
-            &nbsp; * БУРГЕРЫ КОТОРЫЕ РВУТ * КРАФТОВЫЕ КОКТЕЙЛИ * ТОЛЬКО РЕТРО ВАЙБ * ОТКРЫТЫ ДО 2:00 * ЛУЧШИЕ В ГОРОДЕ *
-            БУРГЕРЫ КОТОРЫЕ РВУТ * КРАФТОВЫЕ КОКТЕЙЛИ * ТОЛЬКО РЕТРО ВАЙБ * ОТКРЫТЫ ДО 2:00 * ЛУЧШИЕ В ГОРОДЕ
+            &nbsp; * СЭНДВИЧИ С КУРИЦЕЙ * КЛАБ-СЭНДВИЧ С БЕКОНОМ * КАРТОШКА ДОЛЬКАМИ ИЛИ ФРИ * МОРС В КАЖДОМ НАБОРЕ *
+            ДОСТАВКА * ОПЛАТА НАЛИЧНЫМИ ИЛИ ПЕРЕВОДОМ * СЭНДВИЧИ С КУРИЦЕЙ * КЛАБ-СЭНДВИЧ С БЕКОНОМ * КАРТОШКА ДОЛЬКАМИ
+            ИЛИ ФРИ * МОРС В КАЖДОМ НАБОРЕ * ДОСТАВКА
           </div>
         </div>
 
-        <section className="section-padding">
+        <section className="section-padding" id="menu">
           <div className="section-header">
-            <h2 className="section-title">ВЫБОР ШЕФА</h2>
-            <a
-              href="#"
-              className="text-sm md:text-base"
-              style={{ color: "var(--dark)", fontWeight: 800, textTransform: "uppercase" }}
+            <h2 className="section-title">НАШ НАБОР</h2>
+            <span
+              style={{
+                fontSize: "14px",
+                fontWeight: 800,
+                textTransform: "uppercase",
+                background: "var(--primary)",
+                color: "white",
+                padding: "8px 16px",
+                border: "var(--border)",
+                boxShadow: "4px 4px 0 var(--dark)",
+              }}
             >
-              Всё меню
-            </a>
+              650 ₽ за набор
+            </span>
+          </div>
+
+          {/* Что входит в набор */}
+          <div
+            style={{
+              background: "var(--accent)",
+              border: "var(--border)",
+              boxShadow: "var(--shadow)",
+              padding: "24px 30px",
+              marginBottom: "40px",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "16px",
+              alignItems: "center",
+            }}
+          >
+            <span style={{ fontFamily: "Unbounded, sans-serif", fontWeight: 800, fontSize: "18px", color: "var(--dark)" }}>
+              В КАЖДОМ НАБОРЕ:
+            </span>
+            {["🥤 Морс", "🍟 Картошка дольками или фри", "🥪 Сэндвич на выбор"].map((item) => (
+              <span
+                key={item}
+                style={{
+                  background: "white",
+                  border: "2px solid var(--dark)",
+                  padding: "8px 16px",
+                  fontWeight: 700,
+                  fontSize: "14px",
+                }}
+              >
+                {item}
+              </span>
+            ))}
           </div>
 
           <div className="menu-grid">
-            {/* Item 1 */}
+            {/* Сэндвич с курицей */}
             <div className="menu-card">
-              <span className="menu-tag">Хит продаж</span>
+              <span className="menu-tag">Хит</span>
               <img
-                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Классический бургер"
+                src="https://cdn.poehali.dev/files/70e7e015-9c52-4657-b201-6fa9a7460b38.jpg"
+                alt="Сэндвич с курицей и помидорами"
+                style={{ objectFit: "cover", height: "220px", width: "100%" }}
               />
               <div className="menu-card-body">
                 <div
@@ -85,23 +143,24 @@ export default function Index() {
                     marginBottom: "10px",
                   }}
                 >
-                  <h3>Классика</h3>
-                  <span className="price">1 400 ₽</span>
+                  <h3>Сэндвич с курицей</h3>
+                  <span className="price">в наборе</span>
                 </div>
                 <p style={{ fontSize: "14px", color: "#666" }}>
-                  Тройной смэш из мраморной говядины, фирменный соус, маринованные огурцы на бриоши.
+                  Хлеб для тостов, куриное филе, твёрдый сыр, крем-сыр, помидор, зелень, салатные листья.
                 </p>
               </div>
             </div>
 
-            {/* Item 2 */}
+            {/* Клаб-сэндвич с беконом */}
             <div className="menu-card">
               <span className="menu-tag" style={{ background: "var(--secondary)" }}>
-                Острое
+                Классика
               </span>
               <img
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Неоновая пицца"
+                src="https://cdn.poehali.dev/files/7b98ef7d-f2d7-40fa-b5fb-a62995db33dd.jpg"
+                alt="Клаб-сэндвич с беконом"
+                style={{ objectFit: "cover", height: "220px", width: "100%" }}
               />
               <div className="menu-card-body">
                 <div
@@ -112,21 +171,24 @@ export default function Index() {
                     marginBottom: "10px",
                   }}
                 >
-                  <h3>Электро Пепперони</h3>
-                  <span className="price">1 800 ₽</span>
+                  <h3>Клаб-сэндвич с беконом</h3>
+                  <span className="price">в наборе</span>
                 </div>
-                <p style={{ fontSize: "14px", color: "#666" }}>Двойная пепперони, острый мёд, тесто на закваске.</p>
+                <p style={{ fontSize: "14px", color: "#666" }}>
+                  Хлеб, бекон, ветчина, сыр, помидор, красный лук, салатный лист, майонез. Самый что ни на есть классический!
+                </p>
               </div>
             </div>
 
-            {/* Item 3 */}
+            {/* Набор целиком */}
             <div className="menu-card">
               <span className="menu-tag" style={{ background: "var(--accent)", color: "var(--dark)" }}>
-                Популярное
+                Полный набор
               </span>
               <img
-                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Диско Сауэр"
+                src="https://cdn.poehali.dev/projects/d38b36c1-381d-4094-8ded-0a957a499c91/files/becf1ab9-fedd-4bec-9c61-ba1852f7d8ac.jpg"
+                alt="Набор ОбедБрат"
+                style={{ objectFit: "cover", height: "220px", width: "100%" }}
               />
               <div className="menu-card-body">
                 <div
@@ -137,58 +199,129 @@ export default function Index() {
                     marginBottom: "10px",
                   }}
                 >
-                  <h3>Диско Сауэр</h3>
-                  <span className="price">1 200 ₽</span>
+                  <h3>Набор ОбедБрат</h3>
+                  <span className="price">650 ₽</span>
                 </div>
                 <p style={{ fontSize: "14px", color: "#666" }}>
-                  Джин, цветок бузины, голубой чай и съедобная золотая пыльца.
+                  Сэндвич на выбор + картошка дольками или фри + стакан домашнего морса. Сытно, вкусно, по-домашнему.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="retro-vibe">
+        <section className="retro-vibe" id="about">
           <div>
-            <h2 className="vibe-title">ВАЙБ-ЧЕК ПРОЙДЕН.</h2>
+            <h2 className="vibe-title">ЕДА КАК ОТ МАМЫ.</h2>
             <p className="vibe-text">
-              Мы не просто кормим. Мы создаём моменты. От плейлиста хип-хопа 90-х до диванов в стиле 70-х — каждый уголок
-              продуман для твоего идеального кадра. Бронь не нужна, просто приходи с настроением.
+              Мы не ресторан со звёздами Мишлен — мы просто готовим хорошую домашнюю еду и везём её к тебе. Свежие
+              ингредиенты, честные цены, никаких лишних понтов. Оплата наличными или переводом на карту — как удобно.
             </p>
             <button className="btn-cta" style={{ background: "var(--dark)", color: "white", borderColor: "white" }}>
-              Наша история
+              Как заказать
             </button>
           </div>
-          <div className="vibe-img"></div>
+          <div
+            className="vibe-img"
+            style={{
+              background: `url("https://cdn.poehali.dev/projects/d38b36c1-381d-4094-8ded-0a957a499c91/files/3f3fb4ad-42eb-4d2e-8da8-8e9992934f32.jpg") center center / cover`,
+            }}
+          ></div>
+        </section>
+
+        {/* Как заказать */}
+        <section className="section-padding" id="order" style={{ background: "var(--dark)", color: "white" }}>
+          <h2
+            className="section-title"
+            style={{ marginBottom: "40px", textAlign: "center", color: "var(--accent)" }}
+          >
+            КАК ЗАКАЗАТЬ
+          </h2>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gap: "24px",
+            }}
+          >
+            {[
+              { num: "01", title: "Позвони нам", desc: "Расскажи, что хочешь — сэндвич с курицей или клаб с беконом, дольки или фри." },
+              { num: "02", title: "Подтверди заказ", desc: "Уточним адрес и время доставки. Работаем утром и в обеденные часы." },
+              { num: "03", title: "Оплати", desc: "Наличными при получении или переводом на карту — как тебе удобнее." },
+            ].map((step) => (
+              <div
+                key={step.num}
+                style={{
+                  border: "2px solid white",
+                  padding: "30px 24px",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Unbounded, sans-serif",
+                    fontSize: "48px",
+                    fontWeight: 800,
+                    color: "var(--primary)",
+                    lineHeight: 1,
+                    display: "block",
+                    marginBottom: "16px",
+                  }}
+                >
+                  {step.num}
+                </span>
+                <h3 style={{ fontWeight: 800, fontSize: "18px", marginBottom: "10px", textTransform: "uppercase" }}>
+                  {step.title}
+                </h3>
+                <p style={{ color: "#aaa", fontSize: "14px", lineHeight: 1.6 }}>{step.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: "48px" }}>
+            <a
+              href="tel:+79000000000"
+              className="btn-cta"
+              style={{
+                background: "var(--primary)",
+                color: "white",
+                fontSize: "18px",
+                padding: "16px 40px",
+                textDecoration: "none",
+                display: "inline-block",
+              }}
+            >
+              Позвонить и заказать
+            </a>
+          </div>
         </section>
 
         <section className="section-padding">
           <h2 className="section-title" style={{ marginBottom: "40px", textAlign: "center" }}>
-            @VINYL.DINER
+            @ОБЕДБРАТ
           </h2>
           <div className="social-grid">
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Инста 1"
+                src="https://cdn.poehali.dev/files/70e7e015-9c52-4657-b201-6fa9a7460b38.jpg"
+                alt="Сэндвич с курицей"
               />
             </div>
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Инста 2"
+                src="https://cdn.poehali.dev/files/7b98ef7d-f2d7-40fa-b5fb-a62995db33dd.jpg"
+                alt="Клаб-сэндвич"
               />
             </div>
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Инста 3"
+                src="https://cdn.poehali.dev/projects/d38b36c1-381d-4094-8ded-0a957a499c91/files/becf1ab9-fedd-4bec-9c61-ba1852f7d8ac.jpg"
+                alt="Набор"
               />
             </div>
             <div className="social-item">
               <img
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                alt="Инста 4"
+                src="https://cdn.poehali.dev/projects/d38b36c1-381d-4094-8ded-0a957a499c91/files/3f3fb4ad-42eb-4d2e-8da8-8e9992934f32.jpg"
+                alt="Атмосфера"
               />
             </div>
           </div>
@@ -197,32 +330,34 @@ export default function Index() {
 
       <footer>
         <div>
-          <div className="footer-logo">VINYL*DINER</div>
+          <div className="footer-logo" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <img
+              src="https://cdn.poehali.dev/files/7b98ef7d-f2d7-40fa-b5fb-a62995db33dd.jpg"
+              alt="ОбедБрат"
+              style={{ width: "40px", height: "40px", borderRadius: "50%", border: "2px solid var(--dark)" }}
+            />
+            ОБЕДБРАТ
+          </div>
           <p style={{ color: "#666", lineHeight: 1.6 }}>
-            Твоё место для еды высокого качества и лоу-фай атмосферы. С 2024, но ощущается как 1974.
+            Домашняя еда с доставкой. Сэндвичи, картошка, морс — набор за 650 ₽. Оплата наличными или переводом.
           </p>
         </div>
         <div className="footer-links">
           <h4>Навигация</h4>
           <ul>
             <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
+              <a href="#menu" style={{ color: "inherit", textDecoration: "none" }}>
                 Меню
               </a>
             </li>
             <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
+              <a href="#about" style={{ color: "inherit", textDecoration: "none" }}>
                 О нас
               </a>
             </li>
             <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-                Политика
-              </a>
-            </li>
-            <li>
-              <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-                Условия
+              <a href="#order" style={{ color: "inherit", textDecoration: "none" }}>
+                Заказать
               </a>
             </li>
           </ul>
@@ -230,16 +365,15 @@ export default function Index() {
         <div className="footer-links">
           <h4>Часы работы</h4>
           <ul>
-            <li>Вт-Чт: 12:00 - 23:00</li>
-            <li>Пт-Сб: 12:00 - 02:00</li>
-            <li>Вс: 11:00 - 21:00</li>
-            <li>Пн: Выходной</li>
+            <li>Пн-Пт: 08:00 — 14:00</li>
+            <li>Сб: 09:00 — 13:00</li>
+            <li>Вс: Выходной</li>
           </ul>
         </div>
         <div className="footer-bottom">
-          <span>2025 VINYL DINER</span>
-          <span>ВКУС КЛАССИКИ</span>
-          <span>IG / TW / TK</span>
+          <span>2025 ОБЕДБРАТ</span>
+          <span>ЕДА КАК ДОМА</span>
+          <span>Доставка · Наличные · Перевод</span>
         </div>
       </footer>
     </>
